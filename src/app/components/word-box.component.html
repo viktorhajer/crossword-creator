@@ -1,0 +1,25 @@
+<ng-container *ngIf="!printMod">
+  <div class="box" cdkDrag>
+    <div *ngFor="let letter of letters; let i = index" class="letter"
+         [class.selected]="column === i" [class.empty]="!letter">
+      {{letter ? letter : '&nbsp;'}}
+    </div>
+    <div (click)="shiftLeft()" class="arrow-button">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+    <div (click)="shiftRight()" class="arrow-button">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </div>
+    <div class="arrow-button"></div>
+    <div (click)="removeWord.emit(word.word)" class="arrow-button">
+      <mat-icon>delete</mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="printMod">
+  <div class="box">
+    <div *ngFor="let letter of letters; let i = index" class="letter"
+         [class.selected]="column === i" [class.empty]="!letter">&nbsp;</div>
+  </div>
+</ng-container>

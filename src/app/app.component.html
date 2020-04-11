@@ -1,0 +1,65 @@
+<div id="main">
+  <h1 *ngIf="!printMod" (click)="printMod = !printMod">Crossword Generator - Click here to print view</h1>
+  <h1 *ngIf="printMod" (click)="printMod = !printMod"> {{ formTitle.value }}</h1>
+  <p *ngIf="printMod"> {{ formNotes.value }}</p>
+
+  <div class="form-container" *ngIf="!printMod">
+    <mat-form-field appearance="fill" class="word-field">
+      <mat-label>Title</mat-label>
+      <input matInput [formControl]="formTitle">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Notes</mat-label>
+      <textarea matInput [formControl]="formNotes"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="form-container" *ngIf="!printMod">
+    <mat-form-field appearance="fill" class="word-field">
+      <mat-label>Word</mat-label>
+      <input matInput [formControl]="formWord">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput [formControl]="formDescription">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="add-button" (click)="addWord()">Add</button>
+  </div>
+
+  <div class="form-container" *ngIf="!printMod">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Add Batch</mat-label>
+      <textarea matInput [formControl]="formBatch"
+                placeholder="Format: word1|shift1|desription1 /n word2|shift2|description2 /n ...."></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" class="add-button" (click)="addBatch()">Add Batch</button>
+    <button mat-raised-button color="primary" class="add-button" (click)="getBatch()" *ngIf="size > 0">Copy State</button>
+  </div>
+
+  <div class="container-position">
+
+    <div class="container" [class.print]="printMod" *ngIf="!!words.length">
+      <div class="number-column">
+        <div class="head" *ngIf="!printMod">&nbsp;</div>
+        <div *ngFor="let r of rows" class="head">{{r + 1}}.</div>
+      </div>
+      <div cdkDropList class="list" (cdkDropListDropped)="drop($event)">
+        <div class="box" *ngIf="!printMod">
+          <div *ngFor="let c of columns" class="head" (click)="column = c">{{c + 1}}</div>
+        </div>
+        <app-word-box *ngFor="let word of words" (removeWord)="remove($event)" [printMod]="printMod"
+                      [word]="word" [size]="size" [column]="column"></app-word-box>
+      </div>
+    </div>
+
+    <div class="guide" *ngIf="!!words.length">
+      <div class="description-container" *ngFor="let word of words; let i = index">
+        <div class="description">
+          <div class="numb">{{ i + 1 }}.</div>
+          <div class="details">{{ word.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

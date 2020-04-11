@@ -1,0 +1,94 @@
+#main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  h1 {
+    padding: 10px 0 0 0;
+    text-align: center;
+    font-size: 18px;
+  }
+  p {
+    margin: 0 20px;
+    max-width: 1000px;
+    text-align: justify;
+    font-size: 12px;
+  }
+}
+
+.form-container {
+  margin: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 800px;
+
+  .word-field {
+    width: 150px;
+    margin-right: 10px;
+  }
+  .full-width {
+    width: 100%;
+    margin-right: 10px;
+  }
+  .add-button {
+    width: 120px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .add-button:last-child {
+    margin-right: 0;
+  }
+}
+
+.actions {
+  margin: 20px;
+}
+
+.container-position {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  .container {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: solid 1px #ccc;
+    background: white;
+    border-radius: 4px;
+    margin: 20px;
+
+    .list {
+      width: fit-content;
+      display: block;
+      border-left: 5px solid rgba(0,0,0,0.1);
+    }
+  }
+
+  .guide {
+    margin-bottom: 10px;
+    width: 900px;
+    column-count: 2;
+    column-gap: 20px;
+    font-size: 11px;
+
+    .description-container {
+      margin: 5px 0;
+      display: inline-block;
+
+      .description {
+        display: flex;
+
+        .numb {
+          margin-right: 15px;
+        }
+        .details {
+          width: 400px;
+          text-align: justify;
+        }
+      }
+    }
+  }
+}
+

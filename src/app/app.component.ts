@@ -29,12 +29,11 @@ export class AppComponent {
   formBatch = new FormControl();
 
   constructor(private snackBar: MatSnackBar, private clipboard: Clipboard) {
-    // this.refresh();
+    this.refresh();
   }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.words, event.previousIndex, event.currentIndex);
-    console.log(this.words);
   }
 
   remove(word: string) {

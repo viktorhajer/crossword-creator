@@ -112,6 +112,7 @@ export class AppComponent {
   private refresh() {
     this.size = 0;
     this.words.forEach(w => w.word.length > this.size ? this.size = w.word.length : {});
+    this.size += Math.floor(this.size / 2);
     this.columns = [...Array(this.size).keys()];
     if (this.column > this.size - 1) {
       this.column = this.size - 1;

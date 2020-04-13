@@ -19,10 +19,8 @@ export class AppComponent {
   rows = [];
   printMod = false;
 
-  formTitle = new FormControl('Rejtvény');
-  formNotes = new FormControl('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' +
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in' +
-    'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.');
+  formTitle = new FormControl('Keresztrejtvény');
+  formNotes = new FormControl('');
 
   formWord = new FormControl();
   formDescription = new FormControl();

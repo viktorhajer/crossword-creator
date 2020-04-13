@@ -38,7 +38,7 @@ $warn: mat-color($app-warn);
   flex-direction: row;
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background-color: white;
   font-size: 18px;
 }
 
@@ -57,7 +57,7 @@ $warn: mat-color($app-warn);
 .letter, .head, .arrow-button {
   width: 13px;
   border: 1px solid #ddd;
-  background: white;
+  background-color: white;
   padding: 8px;
   margin: 0;
   display: flex;
@@ -66,18 +66,18 @@ $warn: mat-color($app-warn);
   height: 25px;
 
   &.selected {
-    background: #8cbad7;
+    background-color: #8cbad7;
     color: #ffffff;
     border-color: #719bb6;
   }
   &.empty {
-    background: #ddd;
+    background-color: #ddd;
   }
 }
 
 .head {
   font-size: 14px;
-  background: $primary;
+  background-color: $primary;
   border-color: $primary;
   color: #ffffff;
   cursor: pointer;
@@ -85,4 +85,23 @@ $warn: mat-color($app-warn);
 
 .arrow-button {
   border-color: transparent;
+}
+
+@media print {
+  .container {
+    -webkit-print-color-adjust: exact;
+    border: solid 1px #efefef;
+  }
+
+  .letter, .head, .arrow-button {
+    border: 1px solid #efefef;
+    &.selected {
+      -webkit-print-color-adjust: exact;
+      background-color: #8cbad7;
+    }
+    &.empty {
+      -webkit-print-color-adjust: exact;
+      background-color: #efefef;
+    }
+  }
 }

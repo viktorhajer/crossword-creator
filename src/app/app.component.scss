@@ -40,10 +40,6 @@
   }
 }
 
-.actions {
-  margin: 20px;
-}
-
 .container-position {
   display: flex;
   flex-flow: column;
@@ -68,7 +64,8 @@
 
   .guide {
     margin-bottom: 10px;
-    width: 900px;
+    width: 90%;
+    max-width: 900px;
     column-count: 2;
     column-gap: 20px;
     font-size: 14px;
@@ -84,8 +81,7 @@
           margin-right: 15px;
         }
         .details {
-          width: 400px;
-          text-align: justify;
+          width: 300px;
         }
       }
     }

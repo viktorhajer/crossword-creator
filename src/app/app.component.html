@@ -1,6 +1,6 @@
 <div id="main">
   <h1 *ngIf="!printMod" (click)="printMod = !printMod">Crossword Generator - Click here to print view</h1>
-  <h1 *ngIf="printMod" (click)="printMod = !printMod"> {{ formTitle.value }}</h1>
+  <h1 *ngIf="printMod" (click)="printMod = !printMod"> {{ formTitle.value ? formTitle.value :  'Keresztrejtvény' }}</h1>
   <p *ngIf="printMod"> {{ formNotes.value }}</p>
 
   <div class="form-container" *ngIf="!printMod">
